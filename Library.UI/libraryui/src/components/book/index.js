@@ -11,16 +11,20 @@ function Book() {
   const [isLoading, setIsLoading] = useState(false);
   const [searchBy, setSearchBy] = useState('0');
   const [searchValue, setSearchValue] = useState('');
+  const [own, setOwn] = useState(false);
+  const [love, setLove] = useState(false);
+  const [wanted, setWanted] = useState(false);
 
   useEffect(() => {
     searchBooks();
-  }, [])
+  }, []);
 
   const searchBooks = () => {
     setIsLoading(true);
     const filter = {
       Author: searchBy === '1' ? searchValue : null,
       ISBN: searchBy === '2' ? searchValue : null,
+      
     };
     console.log('filter', filter);
     getBookList(filter).then(response => {
@@ -52,6 +56,14 @@ function Book() {
             value={searchValue}
             onChange={event => setSearchValue(event.target.value)}
           ></input>
+        </div>
+        <div className="filterRow">
+          <label htmlFor="own">Own</label>
+          <input type="checkbox" id="own" name="Own" value={own} onClick={event => setOwn(event.target.checked)}></input>
+          <label htmlFor="love">Love</label>
+          <input type="checkbox" id="love" name="Love" value={love} onClick={event => setLove(event.target.checked)}></input>
+          <label htmlFor="wanted">Wanted</label>
+          <input type="checkbox" id="wanted" name="Wanted" value={wanted} onClick={event => setWanted(event.target.checked)}></input>
         </div>
         <div className="filterRow">
           <button disabled={isLoading} onClick={() => searchBooks()}>Search</button>
