@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryService.API", "LibraryService.API.csproj", "{CF40C63F-38D0-4458-9174-FB3B75476597}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryService.API", ".\LibraryService.API\LibraryService.API.csproj", "{CF40C63F-38D0-4458-9174-FB3B75476597}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryService.Data", "..\LibraryService.Data\LibraryService.Data.csproj", "{7C5B6D9D-635B-4C29-85BA-265781500E76}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryService.Data", ".\LibraryService.Data\LibraryService.Data.csproj", "{7C5B6D9D-635B-4C29-85BA-265781500E76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryService.Services", "..\LibraryService.Services\LibraryService.Services.csproj", "{F3798A13-06C5-4642-8C67-8E42E7554FB3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryService.Services", ".\LibraryService.Services\LibraryService.Services.csproj", "{F3798A13-06C5-4642-8C67-8E42E7554FB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryService.Domain", "..\LibraryService.Domain\LibraryService.Domain.csproj", "{3E269562-4F28-4613-AFE2-6B41150DCDD7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryService.Domain", ".\LibraryService.Domain\LibraryService.Domain.csproj", "{3E269562-4F28-4613-AFE2-6B41150DCDD7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
