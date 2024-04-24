@@ -10,6 +10,7 @@ function Book() {
   const [books, setBooks] = useState([]);
   
   useEffect(() => {
+    console.log('get');
     getBookList().then(response => {
       setBooks(response);
     });
