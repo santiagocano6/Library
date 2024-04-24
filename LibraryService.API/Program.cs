@@ -17,6 +17,8 @@ builder.Services.AddDbContext<LibraryContext>(options => options.UseSqlServer(bu
 builder.Services.AddScoped<ILibraryContext, LibraryContext>();
 builder.Services.AddScoped<IBookService, BookService>();
 
+builder.Services.AddCors();
+
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
@@ -30,6 +32,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000"));
 
 
 

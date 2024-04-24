@@ -1,8 +1,12 @@
 import './book-table.css';
 
-function BookTable() {
+function BookTable({ bookList }) {
     return (
-      <div className="App">Table</div>
+      <div className="App">
+        {bookList.map(book => {
+          return (<div>{book.bookId}</div>);
+        })}
+      </div>
     );
 }
 
