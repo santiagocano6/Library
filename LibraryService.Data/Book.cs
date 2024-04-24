@@ -16,7 +16,7 @@ namespace LibraryService.Data
         [Required]
         [MaxLength(50)]
         [Column("first_name")]
-        public string FirstNname { get; set; }
+        public string FirstName { get; set; }
         [Required]
         [MaxLength(50)]
         [Column("last_name")]
@@ -36,5 +36,11 @@ namespace LibraryService.Data
         [MaxLength(80)]
         [Column("category")]
         public string? Category { get; set; }
+        [Column("own")]
+        public bool? Own { get; set; }
+        [Column("love")]
+        public bool? Love { get; set; }
+        [Column("wanted")]
+        public bool? Wanted { get; set; }
     }
 }

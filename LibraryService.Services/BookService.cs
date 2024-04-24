@@ -1,4 +1,5 @@
 ﻿using LibraryService.Data;
+using LibraryService.Domain;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
@@ -17,10 +18,31 @@ namespace LibraryService.Services
             
         }
 
-        public async Task<List<Book>> GetBooksAsync()
+        public async Task<List<Book>> GetBooksAsync(BooksRequest request)
         {
-            var result = await _context.Books.ToListAsync();
-            return result;
+            var booksQuery = _context.Books.AsQueryable();
+            if (!string.IsNullOrWhiteSpace(request.Author))
+            {
+                booksQuery = booksQuery.Where(x => request.Author.Contains(x.FirstName) || request.Author.Contains(x.LastName));
+            }
+            if (!string.IsNullOrWhiteSpace(request.ISBN))
+            {
+                booksQuery = booksQuery.Where(x => request.ISBN.Contains(x.ISBN));
+            }
+            if (request.Love.GetValueOrDefault())
+            {
+                booksQuery = booksQuery.Where(x => x.Love == true);
+            }
+            if (request.Own.GetValueOrDefault())
+            {
+                booksQuery = booksQuery.Where(x => x.Own == true);
+            }
+            if (request.Wanted.GetValueOrDefault())
+            {
+                booksQuery = booksQuery.Where(x => x.Wanted == true);
+            }
+
+            return await booksQuery.ToListAsync();
         }
     }
 }
